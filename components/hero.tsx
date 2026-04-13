@@ -10,14 +10,14 @@ export function Hero() {
     <section className="relative h-[70vh] md:h-[88vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
   <div className="absolute inset-0 z-0 overflow-hidden">
-  <Image
-    src="/nilmar.jpeg"
-    alt="Personal Trainer Nilteam"
-    fill
-    priority
-    className="object-cover object-[50%_20%] scale-100"
-  />
-
+<Image
+  src="/nilmar.jpeg"
+  alt="Personal Trainer Nilteam"
+  fill
+  priority
+  sizes="100vw"
+  className="object-cover object-[50%_20%] scale-100"
+/>
   {/* Gradientes */}
   <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />

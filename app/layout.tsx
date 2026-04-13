@@ -1,24 +1,23 @@
-import type { Metadata, Viewport } from "next";
-import { Oswald, Inter } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import "./globals.css";
+import type { Metadata, Viewport } from "next"
+import { Oswald, Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
+import "./globals.css"
 
 const oswald = Oswald({
   subsets: ["latin"],
   variable: "--font-heading",
   weight: ["400", "500", "600", "700"],
-});
+})
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-});
+})
 
 export const metadata: Metadata = {
   title: "NILTEAM | Personal Trainer",
   description:
     "Transforme seu corpo. Eleve sua mente. Personal trainer especializado em transformação física e mental.",
-  generator: "v0.app",
   icons: {
     icon: [
       {
@@ -36,16 +35,16 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-};
+}
 
 export const viewport: Viewport = {
   themeColor: "#f97316",
-};
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
@@ -53,8 +52,8 @@ export default function RootLayout({
         className={`${oswald.variable} ${inter.variable} font-sans antialiased bg-black text-white`}
       >
         {children}
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        <Analytics />
       </body>
     </html>
-  );
+  )
 }
