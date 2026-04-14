@@ -7,11 +7,13 @@ const oswald = Oswald({
   subsets: ["latin"],
   variable: "--font-heading",
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 })
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
