@@ -130,3 +130,11 @@
     font-family: var(--font-heading), 'Oswald', sans-serif;
   }
 }
+/* esconder scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { Oswald, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/react"
 import "./globals.css"
+import { Toast } from "radix-ui"
 
 const oswald = Oswald({
   subsets: ["latin"],
