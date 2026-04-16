@@ -61,7 +61,7 @@ export function CTA() {
               asChild
             >
               <a
-                href="https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre a consultoria."
+                href="https://wa.me/555184899698?text=Olá! Gostaria de saber mais sobre a consultoria."
                 target="_blank"
                 rel="noopener noreferrer"
               >

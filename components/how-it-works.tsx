@@ -1,7 +1,19 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ClipboardCheck, FileText, Activity, Trophy, Video, Star } from "lucide-react"
+import {
+  ClipboardCheck,
+  FileText,
+  Activity,
+  Trophy,
+  Video,
+  Star,
+  ChevronLeft,
+  ChevronRight,
+  X,
+} from "lucide-react"
+import Image from "next/image"
+import { useState, useEffect } from "react"
 
 const steps = [
   {
@@ -9,7 +21,7 @@ const steps = [
     step: "01",
     title: "Avaliação Inicial",
     description:
-      "Análise completa do seu perfil físico, objetivos e histórico para criar um plano sob medida.",
+      "Análise completa do seu perfil físico, análise postural e avaliação física objetiva para criar um plano sob medida.",
   },
   {
     icon: FileText,
@@ -34,10 +46,47 @@ const steps = [
   },
 ]
 
+const feedbackImages = [
+  "/print.jpeg",
+  "/print2.jpeg",
+  "/print3.jpeg",
+  "/print4.jpeg",
+  "/print5.jpeg",
+]
+
 export function HowItWorks() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [visibleItems, setVisibleItems] = useState(1)
+
+  // 🔥 detecta tamanho da tela corretamente
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setVisibleItems(3)
+      else if (window.innerWidth >= 768) setVisibleItems(2)
+      else setVisibleItems(1)
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  const maxIndex = feedbackImages.length - visibleItems
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex))
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0))
+  }
+
   return (
     <section id="como-funciona" className="py-24 md:py-32 bg-card">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
+        
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,6 +108,7 @@ export function HowItWorks() {
           </p>
         </motion.div>
 
+        {/* STEPS */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {steps.map((item, index) => (
             <motion.div
@@ -70,23 +120,21 @@ export function HowItWorks() {
               className="relative group"
             >
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-12 left-[60%] w-full h-px bg-border group-hover:bg-primary/30 transition-colors" />
+                <div className="hidden lg:block absolute top-12 left-[60%] w-full h-px bg-border" />
               )}
 
-              <div className="relative p-6 bg-secondary/30 rounded-xl border border-border/50 hover:border-primary/50 transition-all duration-300 h-full">
-                <div className="absolute -top-3 -right-3 w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-heading font-bold text-sm">
+              <div className="relative p-6 bg-secondary/30 rounded-xl border border-border/50 h-full">
+                <div className="absolute -top-3 -right-3 w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm">
                   {item.step}
                 </div>
 
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
                   <item.icon className="w-7 h-7 text-primary" />
                 </div>
 
-                <h3 className="font-heading text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                  {item.title}
-                </h3>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
 
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm">
                   {item.description}
                 </p>
               </div>
@@ -94,22 +142,21 @@ export function HowItWorks() {
           ))}
         </div>
 
+        {/* BONUS */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="mt-20"
         >
-          <div className="p-8 md:p-10 rounded-2xl bg-primary/10 border border-primary/30 text-center">
+          <div className="p-8 rounded-2xl bg-primary/10 border border-primary/30 text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Star className="w-5 h-5 text-primary" />
-              <span className="text-sm font-semibold text-primary tracking-wider">
+              <span className="text-sm font-semibold text-primary">
                 BÔNUS EXCLUSIVO
               </span>
             </div>
 
-            <h3 className="font-heading text-2xl md:text-3xl font-bold mb-6">
+            <h3 className="text-2xl font-bold mb-6">
               Benefícios adicionais da consultoria
             </h3>
 
@@ -117,19 +164,88 @@ export function HowItWorks() {
               <div className="flex gap-4">
                 <Video className="w-6 h-6 text-primary mt-1" />
                 <p className="text-muted-foreground">
-                  Mentorias por videochamada sempre que precisar, com agendamento prévio.
+                  Mentorias por videochamada sempre que precisar.
                 </p>
               </div>
 
               <div className="flex gap-4">
                 <Trophy className="w-6 h-6 text-primary mt-1" />
                 <p className="text-muted-foreground">
-                  4 treinos presenciais no ano ou, caso more longe, 4 chamadas de vídeo em formato hora-aula.
+                  Treinos presenciais ou chamadas estratégicas.
                 </p>
               </div>
             </div>
           </div>
         </motion.div>
+
+        {/* 🔥 FEEDBACKS */}
+        <motion.div className="mt-20 relative overflow-hidden">
+          <h3 className="text-center text-2xl md:text-3xl font-bold mb-8">
+            Veja o que os alunos estão dizendo 👇
+          </h3>
+
+          {/* SETAS */}
+          <button
+            onClick={prevSlide}
+            disabled={currentIndex === 0}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 p-3 rounded-full disabled:opacity-30"
+          >
+            <ChevronLeft />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            disabled={currentIndex >= maxIndex}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 p-3 rounded-full disabled:opacity-30"
+          >
+            <ChevronRight />
+          </button>
+
+          {/* CARROSSEL */}
+          <div className="overflow-hidden">
+            <div
+              className="flex gap-4 transition-transform duration-500"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / visibleItems)}%)`,
+              }}
+            >
+              {feedbackImages.map((src, i) => (
+                <div
+                  key={i}
+                  onClick={() => setSelectedImage(src)}
+                  className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 cursor-pointer"
+                >
+                  <div className="rounded-xl overflow-hidden border shadow-md">
+                    <Image
+                      src={src}
+                      alt={`Feedback ${i + 1}`}
+                      width={300}
+                      height={500}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* MODAL */}
+          {selectedImage && (
+            <div
+              className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
+              onClick={() => setSelectedImage(null)}
+            >
+              <Image
+                src={selectedImage}
+                alt="Feedback"
+                width={400}
+                height={700}
+                className="max-h-[90vh] w-auto rounded-xl"
+              />
+            </div>
+          )}
+        </motion.div>
+
       </div>
     </section>
   )

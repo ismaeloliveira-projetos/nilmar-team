@@ -108,7 +108,7 @@ export function Hero() {
       </motion.div>
 
       <a
-  href="https://wa.me/5551999999999?text=Oi%20vim%20pelo%20site%20e%20quero%20saber%20mais"
+  href="https://wa.me/555184899698?text=Olá%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20a%20consultoria!"
   target="_blank"
   rel="noopener noreferrer"
   className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110"

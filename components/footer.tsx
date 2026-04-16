@@ -1,20 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MessageCircle } from "lucide-react"
 
-const socialLinks = [
-  {
-    name: "Instagram",
-    icon: MessageCircle,
-    href: "https://instagram.com/nilteam",
-  },
-  {
-    name: "WhatsApp",
-    icon: MessageCircle,
-    href: "https://wa.me/5511999999999",
-  },
-]
+
 
 const navLinks = [
   { name: "Início", href: "#" },
@@ -64,27 +52,7 @@ export function Footer() {
             ))}
           </motion.nav>
 
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex gap-4"
-          >
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-secondary/50 rounded-full flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                aria-label={social.name}
-              >
-                <social.icon className="w-5 h-5" />
-              </a>
-            ))}
-          </motion.div>
+ 
 
           {/* Divider */}
           <div className="w-full max-w-md h-px bg-border" />
