@@ -178,11 +178,11 @@ export function HowItWorks() {
           </div>
         </motion.div>
 
-        {/* FEEDBACKS */}
-        <motion.div className="mt-25 md:mt-20 relative overflow-hidden">
-            <h3 className="font-heading text-3xl md:text-5xl font-bold mb-4">
-            Alguns feedbacks <span className="text-primary"> dos alunos</span>
-          </h3>
+        <motion.div className="mt-25 md:mt-20 relative overflow-hidden flex flex-col items-center text-center">
+  <h3 className="font-heading text-3xl md:text-5xl font-bold mb-10">
+    Alguns feedbacks <span className="text-primary">dos alunos</span>
+  </h3>
+
 
           <button
             onClick={prevSlide}
