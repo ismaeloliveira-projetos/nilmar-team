@@ -10,7 +10,6 @@ import {
   Star,
   ChevronLeft,
   ChevronRight,
-  X,
 } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
@@ -59,7 +58,6 @@ export function HowItWorks() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [visibleItems, setVisibleItems] = useState(1)
 
-  // 🔥 detecta tamanho da tela corretamente
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) setVisibleItems(3)
@@ -83,7 +81,7 @@ export function HowItWorks() {
   }
 
   return (
-    <section id="como-funciona" className="py-24 md:py-32 bg-card">
+    <section id="como-funciona" className="py-16 md:py-24 bg-card">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         
         {/* HEADER */}
@@ -92,17 +90,17 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium tracking-wider text-primary border border-primary/30 rounded-full">
+          <span className="inline-block px-4 py-1.5 mb-4 md:mb-6 text-sm font-medium tracking-wider text-primary border border-primary/30 rounded-full">
             METODOLOGIA
           </span>
 
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">
             Como funciona a <span className="text-primary">consultoria</span>
           </h2>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Um processo estruturado para garantir sua transformação de forma
             segura, eficiente e duradoura.
           </p>
@@ -123,16 +121,18 @@ export function HowItWorks() {
                 <div className="hidden lg:block absolute top-12 left-[60%] w-full h-px bg-border" />
               )}
 
-              <div className="relative p-6 bg-secondary/30 rounded-xl border border-border/50 h-full">
-                <div className="absolute -top-3 -right-3 w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm">
+              <div className="relative p-5 md:p-6 bg-secondary/30 rounded-xl border border-border/50 h-full">
+                <div className="absolute -top-3 -right-3 w-9 h-9 md:w-10 md:h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm">
                   {item.step}
                 </div>
 
-                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-                  <item.icon className="w-7 h-7 text-primary" />
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-4 md:mb-5">
+                  <item.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                 </div>
 
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">
+                  {item.title}
+                </h3>
 
                 <p className="text-muted-foreground text-sm">
                   {item.description}
@@ -146,17 +146,17 @@ export function HowItWorks() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mt-20"
+          className="mt-14 md:mt-20"
         >
-          <div className="p-8 rounded-2xl bg-primary/10 border border-primary/30 text-center">
-            <div className="flex items-center justify-center gap-2 mb-4">
+          <div className="p-6 md:p-8 rounded-2xl bg-primary/10 border border-primary/30 text-center">
+            <div className="flex items-center justify-center gap-2 mb-3 md:mb-4">
               <Star className="w-5 h-5 text-primary" />
               <span className="text-sm font-semibold text-primary">
                 BÔNUS EXCLUSIVO
               </span>
             </div>
 
-            <h3 className="text-2xl font-bold mb-6">
+            <h3 className="text-xl md:text-2xl font-bold mb-6">
               Benefícios adicionais da consultoria
             </h3>
 
@@ -178,17 +178,16 @@ export function HowItWorks() {
           </div>
         </motion.div>
 
-        {/* 🔥 FEEDBACKS */}
-        <motion.div className="mt-20 relative overflow-hidden">
-          <h3 className="text-center text-2xl md:text-3xl font-bold mb-8">
-            Veja o que os alunos estão dizendo 👇
+        {/* FEEDBACKS */}
+        <motion.div className="mt-14 md:mt-20 relative overflow-hidden">
+            <h3 className="font-heading text-3xl md:text-5xl font-bold mb-4">
+            Alguns feedbacks <span className="text-primary"> dos alunos</span>
           </h3>
 
-          {/* SETAS */}
           <button
             onClick={prevSlide}
             disabled={currentIndex === 0}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 p-3 rounded-full disabled:opacity-30"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 p-2 md:p-3 rounded-full disabled:opacity-30"
           >
             <ChevronLeft />
           </button>
@@ -196,12 +195,11 @@ export function HowItWorks() {
           <button
             onClick={nextSlide}
             disabled={currentIndex >= maxIndex}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 p-3 rounded-full disabled:opacity-30"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 p-2 md:p-3 rounded-full disabled:opacity-30"
           >
             <ChevronRight />
           </button>
 
-          {/* CARROSSEL */}
           <div className="overflow-hidden">
             <div
               className="flex gap-4 transition-transform duration-500"
@@ -229,7 +227,6 @@ export function HowItWorks() {
             </div>
           </div>
 
-          {/* MODAL */}
           {selectedImage && (
             <div
               className="fixed inset-0 bg-black/90 flex items-center justify-center z-50"
@@ -245,7 +242,6 @@ export function HowItWorks() {
             </div>
           )}
         </motion.div>
-
       </div>
     </section>
   )
