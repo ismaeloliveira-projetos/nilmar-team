@@ -81,7 +81,7 @@ export function HowItWorks() {
   }
 
   return (
-    <section id="como-funciona" className="py-1 md:py-24 bg-card">
+    <section id="como-funciona" className="py-5 md:py-24 bg-card">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         
         {/* HEADER */}
@@ -179,7 +179,7 @@ export function HowItWorks() {
         </motion.div>
 
         {/* FEEDBACKS */}
-        <motion.div className="mt-14 md:mt-20 relative overflow-hidden">
+        <motion.div className="mt-25 md:mt-20 relative overflow-hidden">
             <h3 className="font-heading text-3xl md:text-5xl font-bold mb-4">
             Alguns feedbacks <span className="text-primary"> dos alunos</span>
           </h3>
