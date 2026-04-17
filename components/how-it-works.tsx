@@ -81,7 +81,7 @@ export function HowItWorks() {
   }
 
   return (
-    <section id="como-funciona" className="py-16 md:py-24 bg-card">
+    <section id="como-funciona" className="py-1 md:py-24 bg-card">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         
         {/* HEADER */}

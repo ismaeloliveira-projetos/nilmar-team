@@ -6,10 +6,10 @@ import { MessageCircle, Zap } from "lucide-react"
 
 export function CTA() {
   return (
-    <section
-      id="contato"
-      className="py-24 md:py-32 bg-background relative overflow-hidden"
-    >
+   <section
+  id="contato"
+  className="pt-10 pb-16 md:pt-20 md:pb-24 bg-background relative overflow-hidden"
+>
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
