@@ -1,21 +1,21 @@
-import type { Metadata, Viewport } from "next"
-import { Oswald, Inter } from "next/font/google"
-import { Analytics } from "@vercel/analytics/react"
-import "./globals.css"
-import { Toast } from "radix-ui"
+import type { Metadata, Viewport } from "next";
+import { Oswald, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import "./globals.css";
+import { Toast } from "radix-ui";
 
 const oswald = Oswald({
   subsets: ["latin"],
   variable: "--font-heading",
   weight: ["400", "500", "600", "700"],
   display: "swap",
-})
+});
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-})
+});
 
 export const metadata: Metadata = {
   title: "NILTEAM | Personal Trainer",
@@ -38,16 +38,16 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-}
+};
 
 export const viewport: Viewport = {
-  themeColor: "#f97316",
-}
+  themeColor: "#000080",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
@@ -58,5 +58,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { MessageCircle, Zap } from "lucide-react"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { MessageCircle, Zap } from "lucide-react";
 
 export function CTA() {
   return (
-   <section
-  id="contato"
-  className="pt-10 pb-16 md:pt-20 md:pb-24 bg-background relative overflow-hidden"
->
+    <section
+      id="contato"
+      className="pt-10 pb-16 md:pt-20 md:pb-24 bg-background relative overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -18,7 +18,6 @@ export function CTA() {
 
       {/* 🔥 CONTAINER CORRIGIDO */}
       <div className="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-        
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -38,13 +37,12 @@ export function CTA() {
           </motion.div>
 
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Pronto para{" "}
-            <span className="text-primary">mudar de vida</span>?
+            Pronto para <span className="text-primary">mudar de vida</span>?
           </h2>
 
           <p className="text-xl text-muted-foreground mb-10 max-w-xl mx-auto">
-            Dê o primeiro passo rumo à sua melhor versão.
-            Entre em contato agora e comece sua transformação.
+            Dê o primeiro passo rumo à sua melhor versão. Entre em contato agora
+            e comece sua transformação.
           </p>
 
           {/* BOTÃO WHATSAPP VERDE */}
@@ -61,7 +59,7 @@ export function CTA() {
               asChild
             >
               <a
-                href="https://wa.me/555184899698?text=Olá! Gostaria de saber mais sobre a consultoria."
+                href="https://wa.me/551998201432?text=Ol%C3%A1!%20Vim%20pelo%20link%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -88,9 +86,8 @@ export function CTA() {
               100% personalizado
             </div>
           </motion.div>
-
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
