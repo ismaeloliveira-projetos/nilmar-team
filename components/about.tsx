@@ -1,25 +1,22 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { Trophy, Users, Dumbbell, Target } from "lucide-react"
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Trophy, Users, Dumbbell, Target } from "lucide-react";
 
 const stats = [
   { icon: Users, value: "+500", label: "Vidas transformadas" },
   { icon: Trophy, value: "10+", label: "Anos de experiência" },
   { icon: Dumbbell, value: "5000+", label: "Treinos realizados" },
   { icon: Target, value: "100%", label: "Foco em resultados" },
-]
+];
 
 export function About() {
   return (
     <section id="sobre" className="py-24 md:py-32 bg-card">
-      
       {/* 🔥 CONTAINER CORRIGIDO */}
       <div className="max-w-6xl mx-auto px-4 md:px-6">
-        
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -30,7 +27,7 @@ export function About() {
           >
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
               <Image
-                src="/nil.jpg"
+                src="/nillmm.jpeg"
                 alt="Personal Trainer Nilteam"
                 fill
                 className="object-cover"
@@ -59,9 +56,10 @@ export function About() {
             </h2>
 
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Me chamo Nilmar Souza, personal trainer especializado em transformação física e mental.
-              Com mais de 10 anos de experiência no mundo fitness e competições de fisiculturismo,
-              desenvolvi uma metodologia única que combina treino intenso, nutrição estratégica
+              Me chamo Nilmar Souza, personal trainer especializado em
+              transformação física e mental. Com mais de 10 anos de experiência
+              no mundo fitness e competições de fisiculturismo, desenvolvi uma
+              metodologia única que combina treino intenso, nutrição estratégica
               e mentalidade vencedora.
             </p>
 
@@ -97,10 +95,9 @@ export function About() {
                 </motion.div>
               ))}
             </div>
-
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
